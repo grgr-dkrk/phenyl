@@ -8,8 +8,8 @@ module.exports = {
       jsx: true
     }
   },
-  plugins: ["prettier", "@typescript-eslint"],
-  extends: ["eslint:recommended"],
+  plugins: ["prettier", "@typescript-eslint", "jest"],
+  extends: ["eslint:recommended", "plugin:jest/recommended"],
   rules: {
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["error"],
