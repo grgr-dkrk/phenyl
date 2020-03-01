@@ -1,7 +1,4 @@
-import { it, describe } from "mocha";
-// @ts-ignore
 import powerCrypt from "power-crypt";
-import assert from "assert";
 import { GeneralRequestData } from "@phenyl/interfaces";
 import { encryptPasswordInRequestData } from "../src/encrypt-password-in-request-data";
 
@@ -20,7 +17,7 @@ describe("encryptPasswordInRequestData", () => {
       "password",
       powerCrypt
     );
-    assert.deepEqual(encryptedRequestData, requestData);
+    expect(requestData).toStrictEqual(encryptedRequestData)
   });
 
   it("encrypts password if password is in request data with insertOne method", () => {
@@ -46,7 +43,7 @@ describe("encryptPasswordInRequestData", () => {
       }
     };
 
-    assert.deepEqual(encryptedRequestData, expectedRequestData);
+    expect(expectedRequestData).toStrictEqual(encryptedRequestData)
   });
 
   it("encrypts password if password is in request data with insertMulti method", () => {
@@ -75,7 +72,7 @@ describe("encryptPasswordInRequestData", () => {
       }
     };
 
-    assert.deepEqual(encryptedRequestData, expectedRequestData);
+    expect(expectedRequestData).toStrictEqual(encryptedRequestData)
   });
 
   it("encrypts password if password is in request data with update method", () => {
@@ -109,6 +106,6 @@ describe("encryptPasswordInRequestData", () => {
       }
     };
 
-    assert.deepEqual(encryptedRequestData, expectedRequestData);
+    expect(expectedRequestData).toStrictEqual(encryptedRequestData)
   });
 });
