@@ -1,5 +1,3 @@
-import { it, describe } from "mocha";
-import assert from "assert";
 import { removePasswordFromResponseEntity } from "../src/remove-password-from-response-data";
 
 describe("removePasswordFromResponseEntity", () => {
@@ -11,7 +9,7 @@ describe("removePasswordFromResponseEntity", () => {
     };
 
     const result = removePasswordFromResponseEntity(entity, "password");
-    assert.deepStrictEqual(result, { name: "Foo Bar", id: "foobar" });
+    expect(result).toStrictEqual({ name: "Foo Bar", id: "foobar" });
   });
 
   it("should be no change when entity doesn't have passwordPropName", () => {
@@ -21,6 +19,6 @@ describe("removePasswordFromResponseEntity", () => {
     };
 
     const result = removePasswordFromResponseEntity(entity, "password");
-    assert.deepStrictEqual(result, { name: "Foo Bar", id: "foobar" });
+    expect(result).toStrictEqual({ name: "Foo Bar", id: "foobar" });
   });
 });
